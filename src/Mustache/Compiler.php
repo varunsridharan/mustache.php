@@ -156,6 +156,10 @@ class Mustache_Compiler
                     break;
 
                 case Mustache_Tokenizer::T_COMMENT:
+					break;
+
+                case Mustache_Tokenizer::T_RAW_VAR:
+					$code .= '$buffer .= "'.$node['otag'].' '.$node['name'].' '.$node['ctag'].'"; ';
                     break;
 
                 case Mustache_Tokenizer::T_ESCAPED:
